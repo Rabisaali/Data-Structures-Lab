@@ -26,7 +26,7 @@ int main () {
     average = float(sum)/float(n);
     cout << endl;
     cout << "Sum: " << sum << endl;
-    cout << "Average: " << setprecision(5) << average  << endl;
+    cout << "Average: " << fixed << setprecision(2) << average  << endl;
     cout << "Maximum: " << maximum << endl;
     cout << "Minimum: " << minimum << endl;
 }
