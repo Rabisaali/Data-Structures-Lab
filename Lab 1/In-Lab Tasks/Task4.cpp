@@ -41,6 +41,11 @@ class Rectangle {
             *height = x;
         }
 
+        Rectangle(const Rectangle &other) {
+            width = new int(*other.width);
+            height = new int(*other.height);
+        }
+
         ~Rectangle() {
             delete width;
             width = nullptr;
@@ -63,7 +68,7 @@ int main () {
 
     cout << "Displaying the details of r1:" << endl;
     r1.display(); 
+    //This time the width wasn't changed when i modified the pointer
 
-
-    /*when r1 and r2 go out of scope, both of their destructors will try to delete the same dynamically allocated memory. To be specific, when r1's destructor is called it will delete the dynamically allocated memory of height and width, but then the call of r2's destructor will try to delete the same memory(as they both share the same address), causing double-deletion problem (undefined behaviour)*/
+    /*when r1 and r2 go out of scope, both of their destructors will try to delete the same dynamically allocated memory. To be specific, when r1's destructor is called it will delete the dynamically allocated memory of height and width, but then the call of r2's destructor will try to delete the same memory(if they both share the same address), causing double-deletion problem (undefined behaviour)*/
 }
