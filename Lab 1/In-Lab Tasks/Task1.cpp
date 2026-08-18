@@ -29,4 +29,7 @@ int main () {
     cout << "Average: " << fixed << setprecision(2) << average  << endl;
     cout << "Maximum: " << maximum << endl;
     cout << "Minimum: " << minimum << endl;
+
+    delete[] arr;
+    arr = nullptr;
 }
