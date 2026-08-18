@@ -70,5 +70,5 @@ int main () {
     r1.display(); 
     //This time the width wasn't changed when i modified the pointer
 
-    /*when r1 and r2 go out of scope, both of their destructors will try to delete the same dynamically allocated memory. To be specific, when r1's destructor is called it will delete the dynamically allocated memory of height and width, but then the call of r2's destructor will try to delete the same memory(if they both share the same address), causing double-deletion problem (undefined behaviour)*/
+    /*when r1 and r2 go out of scope, both of their destructors will try to delete the same dynamically allocated memory(for task 3). To be specific, when r1's destructor is called it will delete the dynamically allocated memory of height and width, but then the call of r2's destructor will try to delete the same memory(if they both share the same address), causing double-deletion problem (undefined behaviour), but after adding a copy constructor of our own, now the value from r1 is copied into a new addresses for r2. Hence, when the destructor is called now, separate memories are deleted without causing double deletion problem*/
 }
