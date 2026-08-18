@@ -8,4 +8,4 @@
 
 ## Overview
 
-This repository contains all the lab tasks, practice problems, home tasks for the **Data Structures** course. 
+This repository contains all the lab tasks, practice problems, and home tasks for the **Data Structures** course. 
