@@ -15,7 +15,7 @@ class DynamicArray {
             arr = new int[capacity];
         }  
 
-        void pushback(int value) {
+        void pushBack(int value) {
             if(size==capacity) {
                 capacity *= 2;
                 int* arr_temp = new int[capacity];
@@ -82,12 +82,12 @@ class DynamicArray {
 int main () {
     try {
         DynamicArray vec;
-        vec.pushback(6);
-        vec.pushback(0);
-        vec.pushback(10);
-        vec.pushback(19);
-        vec.pushback(8);
-        vec.pushback(7);
+        vec.pushBack(6);
+        vec.pushBack(0);
+        vec.pushBack(10);
+        vec.pushBack(19);
+        vec.pushBack(8);
+        vec.pushBack(7);
 
         cout << "Original Vector: ";
         vec.print();
