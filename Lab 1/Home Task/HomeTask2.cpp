@@ -1,5 +1,4 @@
 #include<iostream>
-#include<exception>
 using namespace std;
 
 class Matrix {
@@ -43,6 +42,10 @@ class Matrix {
         Matrix& operator= (const Matrix& other) {
             cout << "Calling Overloaded Assignment Operator" << endl;
 
+            if (this == &other) {
+                return *this;
+            }
+
             for (int i = 0; i < rows; i++) {
                 delete[] data[i];
             }
@@ -81,7 +84,7 @@ class Matrix {
             }
         }
 
-        void display() {
+        void display() const {
             for(int i=0; i<rows; i++) {
                 for(int j=0; j<cols; j++) {
                     cout << data[i][j] << " ";
