@@ -50,15 +50,15 @@ int main () {
     arr.display();
 
     cout << "Getting individual elements: " << endl;
-    cout << "Element 3: " << arr.get(3) << endl;
-    cout << "Element 4: " << arr.get(4) << endl;
+    cout << "Element 4: " << arr.get(3) << endl;
+    cout << "Element 5: " << arr.get(4) << endl;
 
     // reading at wrong position
-    cout << "Getting 10th element: ";
+    cout << "Getting 11th element: ";
     int element = arr.get(10);
     if (element!=-1) cout << element << endl;
 
     //writing from wrong position
-    cout << "Writing -1 element: ";
+    cout << "Writing at -1 position: ";
     arr.set(-1, 10);
 }
