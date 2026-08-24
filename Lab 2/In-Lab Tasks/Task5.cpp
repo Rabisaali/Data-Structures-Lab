@@ -42,10 +42,25 @@ int main () {
         cout << "Average of row " << i+1 << ": " << double(sum)/double(size[i]) << endl; 
     }
 
-    cout << "Row having maximum "
+    int maxval=size[0], minval=size[0];
+    int maxind=1, minind=1;
+    for(int i=0; i<rows; i++) {
+        if (maxval<size[i]) {
+            maxval=size[i];
+            maxind=i+1;
+        }
+        if (minval>size[i]) {
+            minval=size[i];
+            minind=i+1;
+        }
+    }
+
+    cout << "Row having most elements: " << maxind << endl;
+    cout << "Row having fewest elements: " << minind << endl; 
 
     for (int i=0; i<rows; i++) {
         delete[] array[i];
     }
     delete[] array;
+    delete[] size;
 }
