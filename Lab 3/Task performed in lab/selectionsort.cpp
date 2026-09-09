@@ -2,6 +2,7 @@
 using namespace std;
 
 void SelectionSort(int arr[], int n) {
+    int count=0;
     for(int i=0; i<n-1; i++) {
         int min_index=i;
 
@@ -14,7 +15,9 @@ void SelectionSort(int arr[], int n) {
         int temp = arr[i];
         arr[i] = arr[min_index];
         arr[min_index] = temp;
+        count++;
     }
+    cout << "Number of swaps required to sort the array are: " << count << "\n";
     return;
 }
 int main () {
