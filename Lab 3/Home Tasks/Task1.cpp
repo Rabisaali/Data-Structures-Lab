@@ -29,6 +29,7 @@ void printingarray(int arr[], int n) {
     }
     cout << endl;
 }
+
 int main () {
     int arr[] = {12, 34, 54, 2, 3};
     shellSort(arr, size(arr));
@@ -37,3 +38,7 @@ int main () {
         cout << arr[i] << " ";
     }
 }
+
+// Shell Sort generally outperforms plain Insertion Sort because it compares
+// and moves elements that are far apart using gaps, reducing large inversions
+// before performing the final insertion sort with gap = 1.
