@@ -69,6 +69,35 @@ class Singly {
                 temp=temp->next;
             }
         }
+
+        void reverse() {
+            Node* curr=head;
+            Node* prev=NULL;
+            //tail=head;
+            // while(prev->next != curr) {
+            //     prev=prev->next;
+            // }
+            // Node*temp=curr;
+            // curr->next=prev->next;
+            // prev->next=NULL;
+            // tail=prev;
+            while(curr!=NULL) {
+                Node* n=curr->next;
+                curr->next=prev;
+                prev=curr;
+                curr=n;
+            }
+            head=prev;
+        }
+
+        void displayReverse() {
+            reverse();
+            Node* temp=head;
+            while(temp!=NULL) {
+                cout << temp->data << " ";
+                temp=temp->next;
+            }
+        }
 };
 
 int main () {
@@ -76,10 +105,11 @@ int main () {
     s.insertAt(0, 9);
     s.insertAt(1, 8);
     s.insertAt(2, 18);
-    s.insertAt(0, 7);
+    // s.insertAt(0, 7);
     s.display();
     cout << endl;
-    s.search(9);
-    s.search(0);
+    // s.search(9);
+    // s.search(0);
+    s.displayReverse();
 }
 
