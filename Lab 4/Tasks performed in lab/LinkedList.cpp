@@ -47,6 +47,21 @@ class Singly {
             temp->next=newNode;
         }
 
+        bool search(int key) {
+            Node* temp=head;
+
+            while(temp!=NULL) {
+                if (temp->data==key) {
+                    cout << "Found\n";
+                    return true;
+                }
+                temp=temp->next;
+            }
+
+            cout << "Not Found\n";
+            return false;
+        }
+
         void display() {
             Node* temp=head;
             while(temp!=NULL) {
@@ -63,5 +78,8 @@ int main () {
     s.insertAt(2, 18);
     s.insertAt(0, 7);
     s.display();
+    cout << endl;
+    s.search(9);
+    s.search(0);
 }
 
