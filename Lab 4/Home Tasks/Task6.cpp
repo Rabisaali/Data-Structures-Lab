@@ -72,6 +72,10 @@ class CircularLinkedList {
                 insertAtHead(val);
                 return;
             }
+            if (head == NULL) {
+                cout << "Invalid Position\n";
+                return;
+            }
             Node* curr = head;
             pos-=1;
             while(pos--) {
@@ -137,6 +141,11 @@ class CircularLinkedList {
         }
 
         bool search(int key) {
+
+            if (head == NULL) {
+                cout << "Linked List is empty\n";
+                return false;
+            }
             Node* temp = head;
 
             do {
