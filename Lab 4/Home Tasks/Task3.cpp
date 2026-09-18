@@ -107,11 +107,79 @@ class DoublyLinkedList {
                 }
 
                 Node* newNode = new Node(val);
-
+                
                 newNode->next=curr->next;
                 newNode->prev=curr;
                 curr->next->prev=newNode;
                 curr->next=newNode;
+            }
+        }
+
+        void deleteFromStart() {
+            if (head==NULL) {
+                cout << "Linked List is empty\n";
+                return;
+            }
+
+            Node* temp=head->next;
+
+            delete head;
+            if (temp==NULL) {
+                head=NULL;
+                tail=NULL;
+                return;
+            }
+
+            temp->prev=NULL;
+            head=temp;
+        }
+
+        void deleteFromEnd() {
+            if (head==NULL) {
+                cout << "Linked List is empty\n";
+                return;
+            }
+
+            Node* temp=tail->prev;
+            delete tail;
+
+            if(temp==NULL) {
+                head=NULL;
+                tail=NULL;
+                return;
+            }
+
+            temp->next=NULL;
+            tail=temp;
+        }
+
+        void deleteValue(int v) {
+            Node* temp=head;
+
+            bool found=false;
+            while(!found && temp!=NULL) {
+                if (temp->val==v) {
+                    found=true;
+                    if(temp==head) {
+                        deleteFromStart();
+                        return;
+                    }
+                    else if (temp==tail) {
+                        deleteFromEnd();
+                        return;
+                    }
+
+                    temp->prev->next = temp->next;
+                    temp->next->prev = temp->prev;
+                    delete temp;
+
+                    break;
+                }
+                temp=temp->next;
+            }
+            if (!found) {
+                cout << "Value not found\n";
+                return;
             }
         }
 };
