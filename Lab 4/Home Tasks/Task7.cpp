@@ -38,6 +38,10 @@ class CircularLinkedList {
         }
 
         void nextTurn() {
+            if (turn == NULL) {
+                cout << "No players\n";
+                return;
+            }
             cout << turn->data << " ";
             turn=turn->next;
         }
