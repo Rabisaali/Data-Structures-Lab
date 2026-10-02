@@ -25,7 +25,7 @@ class Stack {
         char peek() {
             if (top==-1) {
                 cout << "Stack is empty\n";
-                return -1;
+                return '\0';
             }
             else {
                 return arr[top];
@@ -109,7 +109,7 @@ int main () {
                 }
             }
             else {
-                while(!st.isEmpty() && precedence(st.peek())>=precedence(s[i])) {
+                while(!st.isEmpty() && (precedence(st.peek()) > precedence(s[i]) || (precedence(st.peek()) == precedence(s[i]) && s[i] != '^'))) {  
                     cout << st.peek();
                     st.pop();
                 }
