@@ -57,8 +57,8 @@ int main () {
     cin >> s;
     Stack st(s.length());
     for(int i=0; i<s.length(); i++) {
-        if (!isOperator(s[i]) && s[i] >= '0' && s[i] <= '9') st.push(s[i]-'0'); 
-        else {
+        if (s[i] >= '0' && s[i] <= '9') st.push(s[i]-'0'); 
+        else if (isOperator(s[i])) {
             int x1, x2;
             bool flag=false;
             if (!st.isEmpty()) {
@@ -82,6 +82,10 @@ int main () {
             else if (s[i]=='/') st.push(x2/x1);
             else if (s[i]=='+') st.push(x1+x2);
             else if (s[i]=='-') st.push(x2-x1);
+        }
+        else {
+            cout << "Output: Error: Malformed expression\n";
+            return -1;
         }
     }
     if (st.isEmpty()) {
