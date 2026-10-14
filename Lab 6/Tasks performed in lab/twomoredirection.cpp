@@ -59,4 +59,11 @@ int main () {
         }
         cout << endl;
     }
+
+    
+    for (int i=0; i<4; i++) delete[] arr;
+    delete arr;
+
+    for (int i=0; i<4; i++) delete[] solArr;
+    delete solArr;
 }
