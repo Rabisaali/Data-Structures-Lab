@@ -8,7 +8,7 @@ int factorial (int n, int accumulator=1) {
 
 int main () {
     int n;
-    cout << "Enter teh number: ";
+    cout << "Enter the number: ";
     cin >> n;
 
     int ans=factorial(n);
