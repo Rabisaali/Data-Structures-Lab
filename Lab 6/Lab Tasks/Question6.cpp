@@ -22,7 +22,7 @@ int main () {
     cout << "The answer through normal fib function: ";
     cout << fib(n) << "\n";
     auto end = chrono::high_resolution_clock::now();
-    int time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+    long long time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     cout << "The time taken is: " << time << " milliseconds" << endl;
 
 

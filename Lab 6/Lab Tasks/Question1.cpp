@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int sum(int s) {
+long long sum(long long s) {
     if (s<10) return s;
 
     return s%10+sum(s/10);

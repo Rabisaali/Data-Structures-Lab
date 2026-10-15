@@ -2,16 +2,14 @@
 using namespace std;
 
 bool isSafe(int** arr, int x, int y, int n) {
-    if (x<n && y<n && arr[x][y]==1) {
-        cout << "row "<< x << " and column " << y << " is safe :)\n";
+    if(x >= 0 && y >= 0 && x < n && y < n && arr[x][y] == 1) {
         return true;
     }
-    cout << "row "<< x << " and column " << y << " is unsafe :(\n";
     return false;
 }
 
 bool ratinMaze(int** arr, int x, int y, int n, int** solArr) {
-    if((x==(n-1) && (y==(n-1)))) {
+    if((x==(n-1) && (y==(n-1)) && arr[x][y]==1)) {
         solArr[x][y]=1;
         return true;
     }
@@ -24,6 +22,8 @@ bool ratinMaze(int** arr, int x, int y, int n, int** solArr) {
         }
 
         if(ratinMaze(arr, x, y+1, n, solArr)) return true;
+
+        cout << "Backtracking from row " << x << ", column " << y << endl;
 
         solArr[x][y]=0;
         return false;
@@ -60,9 +60,11 @@ int main () {
         cout << endl;
     }
 
-    for (int i=0; i<4; i++) delete[] arr;
-    delete arr;
+    for(int i = 0; i < n; i++) {
+        delete[] arr[i];
+        delete[] solArr[i];
+    }
 
-    for (int i=0; i<4; i++) delete[] solArr;
-    delete solArr;
+    delete[] arr;
+    delete[] solArr;
 }
